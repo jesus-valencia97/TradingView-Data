@@ -153,10 +153,10 @@ class TradingViewData:
                 data.append(row)
 
             data = pd.DataFrame(
-                data, columns=["datetime", "open",
-                               "high", "low", "close", "volume"]
-            ).set_index("datetime")
-            data.insert(0, "symbol", value=symbol)
+                data, columns=["Date", "Open",
+                               "High", "Low", "Close", "Volume"]
+            )
+            data.insert(1, "Symbol", value=symbol)
             return data
         except AttributeError:
             logger.error("no data, please check the exchange and symbol")
@@ -180,7 +180,7 @@ class TradingViewData:
     def get_hist(
         self,
         symbol: str,
-        exchange: str = "NSE",
+        exchange: str = "BMV",
         interval: Interval = Interval.daily,
         n_bars: int = 10,
         fut_contract: int = None,
