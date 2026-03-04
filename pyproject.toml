@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "TradingviewData"
+version = "1.0.0"
+dependencies = [
+    "pandas<3.0",
+    "websocket-client",
+    "requests"
+]
